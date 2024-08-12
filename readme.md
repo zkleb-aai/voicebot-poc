@@ -49,11 +49,7 @@ Run the main script to start the VoiceBot:
 python main.py
 ```
 
-You can optionally set a custom system prompt for Claude:
-
-```
-python main.py --system-prompt "You are a helpful assistant specializing in technology."
-```
+You can set a custom system prompt for Claude in the main.py file.
 
 ## Important Note
 
