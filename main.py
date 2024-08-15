@@ -12,6 +12,12 @@ dotenv.load_dotenv()
 
 aai.settings.api_key = os.environ.get('ASSEMBLY_API')
 
+# CONFIG
+global end_utterance_silence_threshold, system_prompt
+end_utterance_silence_threshold = 700 # set custom end of utterance silence threshold. default is 700 ms
+# set custom system prompt 
+system_prompt = "You are a helpful customer service agent for a tech company who is brief in your responses.  You are working at a call center so please respond how you would on a phonecall."
+
 def start_transcription(transcript_array, stop_event, printer):
     def on_open(session_opened: aai.RealtimeSessionOpened):
         print("Session ID:", session_opened.session_id)
@@ -41,6 +47,7 @@ def start_transcription(transcript_array, stop_event, printer):
         on_error=on_error,
         on_open=on_open,
         on_close=on_close,
+        end_utterance_silence_threshold=end_utterance_silence_threshold
     )
 
     return transcriber
@@ -48,9 +55,6 @@ def start_transcription(transcript_array, stop_event, printer):
 def main():
     transcript_array = []
     stop_event = Event()
-
-    # Set the system prompt
-    system_prompt = "You are a helpful customer service agent for a tech company who is brief in your responses.  You are working at a call center so please respond how you would on a phonecall."
 
     # Create the transcript printer with the system prompt
     printer = TranscriptPrinter(transcript_array, stop_event, system_prompt)
