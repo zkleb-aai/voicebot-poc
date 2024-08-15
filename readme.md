@@ -12,7 +12,7 @@ VoiceBot is an interactive voice-based assistant that uses speech recognition, n
 
 - Python 3.10 or higher
 - An AssemblyAI API key
-- An Anthropic API key *Note: Make sure your plan allows for API usage (https://console.anthropic.com/settings/plans)[https://console.anthropic.com/settings/plans]*
+- An Anthropic API key *Note: Make sure your plan allows for API usage https://console.anthropic.com/settings/plans*
 - An ElevenLabs API key
 
 ## Installation
