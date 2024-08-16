@@ -27,6 +27,7 @@ def start_transcription(transcript_array, stop_event, printer):
             return
 
         if isinstance(transcript, aai.RealtimeFinalTranscript):
+            print() # --> empty print to prevent string error, fix later
             print("User: "+ transcript.text +"\n")
             transcript_array.append(transcript.text)
             printer.last_message_timestamp = time.time()
