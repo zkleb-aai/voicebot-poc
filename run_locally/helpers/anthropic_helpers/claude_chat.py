@@ -5,8 +5,7 @@ client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_KEY"))
 
 def chat_with_claude(messages_arr, system_prompt):
     message = client.messages.create(
-        # model="claude-3-5-sonnet-20240620",
-        model="claude-3-haiku-20240307",
+        model="claude-3-5-sonnet-20240620",
         max_tokens=2000,
         temperature=0,
         system=system_prompt,
